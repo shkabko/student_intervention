@@ -11800,7 +11800,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[522]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11852,20 +11852,21 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[523]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="c1"># TODO: Calculate number of features</span>
 
-<span class="n">n_students</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">n_students</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">n_features</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="c1"># TODO: Calculate failing students</span>
 <span class="n">n_passed</span><span class="p">,</span> <span class="n">n_failed</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">passed</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">n_students</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">n_students</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11886,10 +11887,10 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 67.00%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -11912,7 +11913,7 @@ Graduation rate of the class: 67.00%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[524]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -11994,7 +11995,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[525]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12065,7 +12066,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[526]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12153,13 +12154,13 @@ Testing set has 95 samples.
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li><p>Support Vector Classifier
-Nonlinear SVM with a kernel can be used for digits recognition (the mails or bank checks). There are 10 outputs and the classifier can be trained for each class in a one-vs-all manner. For predictions the algorithm calculates probabilities for each class and choses the one which is the most positive. The strenght that SVM is flexible for choosing similarity function. The model perform well if there is not much noise/mislabeled data.</p>
+Nonlinear SVM with a kernel can be used for digits recognition (for mails or bank checks). There are 10 outputs and the classifier can be trained for each class in a one-vs-all manner. For predictions the algorithm calculates probabilities for each class and choses the one which is the most positive. The advantage / strenght that SVM is flexible for choosing similarity function, kernel, linear. The model perform well if there is not much noise/mislabeled data. As another disadvantage is thats prone to overfit, thus regularization has to be applied and parameters optimized.</p>
 </li>
 <li><p>K-nearest neighbors
-KNN can be used for text cathegorization. Cathegorized training documents are used directly for classification process, k nearest documents to the test one in the training set are determined. Then, the prediction can be made according to the category distribution among these k nearest neighbor. Thus there is no training needed and the method is very robust towards the noise as compared to SVM. As a disadvantage: in distance based learning results are very sensetive to k choice as well as needs in high number of samples to work well.</p>
+KNN can be used for text cathegorization. Cathegorized training documents are used directly for classification process, k nearest documents to the test one in the training set are determined. Then, the prediction can be made according to the category distribution among these k nearest neighbor. Thus there is no training needed and the method is very robust towards the noise as compared to SVM. As a disadvantage: in distance based learning results are very sensetive to choice of k as well as needs in high number of samples to work well.</p>
 </li>
 <li><p>Random forest
-Random forest can be applied in bioinformatics <a href="http://www.cs.cmu.edu/~qyj/papersA08/11-rfbook.pdf">http://www.cs.cmu.edu/~qyj/papersA08/11-rfbook.pdf</a> and RF is great to deal with sparce data and high dimentions, no needs to prune. It provides high prediction rate , but has disadvantage of high computation cost for the training.</p>
+Random forest can be applied in bioinformatics <a href="http://www.cs.cmu.edu/~qyj/papersA08/11-rfbook.pdf">http://www.cs.cmu.edu/~qyj/papersA08/11-rfbook.pdf</a> and RF is great to deal with sparce data and high dimensions, no needs to prune. It's advantage in relativly high prediction rate compared to desicion trees, but has disadvantage of high computation cost for the training.</p>
 </li>
 </ol>
 
@@ -12186,7 +12187,7 @@ Random forest can be applied in bioinformatics <a href="http://www.cs.cmu.edu/~q
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[533]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12259,7 +12260,7 @@ Random forest can be applied in bioinformatics <a href="http://www.cs.cmu.edu/~q
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[697]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12306,58 +12307,58 @@ Random forest can be applied in bioinformatics <a href="http://www.cs.cmu.edu/~q
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a SVC using a training set size of 100. . .
-Trained model in 0.0023 seconds
+Trained model in 0.0021 seconds
 Made predictions in 0.0012 seconds.
 F1 score for training set: 0.8609.
-Made predictions in 0.0028 seconds.
+Made predictions in 0.0036 seconds.
 F1 score for test set: 0.8067.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0054 seconds
-Made predictions in 0.0031 seconds.
+Trained model in 0.0048 seconds
+Made predictions in 0.0029 seconds.
 F1 score for training set: 0.8608.
 Made predictions in 0.0029 seconds.
 F1 score for test set: 0.8205.
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0089 seconds
-Made predictions in 0.0061 seconds.
+Trained model in 0.0084 seconds
+Made predictions in 0.0062 seconds.
 F1 score for training set: 0.8584.
-Made predictions in 0.0022 seconds.
+Made predictions in 0.0021 seconds.
 F1 score for test set: 0.8462.
 Training a KNeighborsClassifier using a training set size of 100. . .
-Trained model in 0.0008 seconds
-Made predictions in 0.0016 seconds.
+Trained model in 0.0009 seconds
+Made predictions in 0.0020 seconds.
 F1 score for training set: 0.8356.
-Made predictions in 0.0031 seconds.
+Made predictions in 0.0051 seconds.
 F1 score for test set: 0.7534.
 Training a KNeighborsClassifier using a training set size of 200. . .
-Trained model in 0.0009 seconds
-Made predictions in 0.0033 seconds.
+Trained model in 0.0019 seconds
+Made predictions in 0.0060 seconds.
 F1 score for training set: 0.8367.
-Made predictions in 0.0038 seconds.
+Made predictions in 0.0044 seconds.
 F1 score for test set: 0.7766.
 Training a KNeighborsClassifier using a training set size of 300. . .
-Trained model in 0.0011 seconds
-Made predictions in 0.0069 seconds.
+Trained model in 0.0014 seconds
+Made predictions in 0.0101 seconds.
 F1 score for training set: 0.8558.
-Made predictions in 0.0031 seconds.
+Made predictions in 0.0036 seconds.
 F1 score for test set: 0.7681.
 Training a RandomForestClassifier using a training set size of 100. . .
-Trained model in 0.0357 seconds
-Made predictions in 0.0015 seconds.
+Trained model in 0.0417 seconds
+Made predictions in 0.0016 seconds.
 F1 score for training set: 0.9922.
-Made predictions in 0.0020 seconds.
+Made predictions in 0.0026 seconds.
 F1 score for test set: 0.7013.
 Training a RandomForestClassifier using a training set size of 200. . .
-Trained model in 0.0368 seconds
-Made predictions in 0.0017 seconds.
+Trained model in 0.1026 seconds
+Made predictions in 0.0034 seconds.
 F1 score for training set: 0.9925.
-Made predictions in 0.0016 seconds.
+Made predictions in 0.0020 seconds.
 F1 score for test set: 0.8000.
 Training a RandomForestClassifier using a training set size of 300. . .
-Trained model in 0.0361 seconds
-Made predictions in 0.0018 seconds.
+Trained model in 0.0512 seconds
+Made predictions in 0.0021 seconds.
 F1 score for training set: 0.9924.
-Made predictions in 0.0014 seconds.
+Made predictions in 0.0017 seconds.
 F1 score for test set: 0.7970.
 </pre>
 </div>
@@ -12533,7 +12534,7 @@ F1 score for test set: 0.7970.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>During the training SVC method basically finds 2 planes for 'yes' and 'no' and draw the boundary between 2 classes. The SVC maximizes the distance between the planes for extra safety in predictions. During the classification depending on the similarity to the training data the class in predicted.</p>
+<p>Before training the data was split into training and test sets in 300/95 proportion. During the training SVC method basically finds 2 hyperplanes for 'yes' and 'no' and draw the boundary between these classes. The SVC maximizes the distance between the planes(margin) for extra safety in predictions and the method mostly care about the points that are closest to the decision boundary (support vectors). If data is not linearly separable instead of hyperplanes Kernel trick is used. It allowes to draw non-linear decision boundaries like spheres. During the classification depending on the similarity to the training data the class in predicted. Sometimes SVC is prone to overfit, however, regularization and optimization funally makes it one of the best algorithms to implement.</p>
 
 </div>
 </div>
@@ -12564,7 +12565,7 @@ F1 score for test set: 0.7970.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[692]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
@@ -12610,7 +12611,7 @@ F1 score for test set: 0.7970.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0054 seconds.
+<pre>Made predictions in 0.0055 seconds.
 Tuned model has a training F1 score of 0.8238.
 Made predictions in 0.0019 seconds.
 Tuned model has a testing F1 score of 0.8571.
@@ -12654,6 +12655,56 @@ Best parameters {&#39;kernel&#39;: &#39;rbf&#39;, &#39;C&#39;: 10.99999999999999
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Find 10 best scoring features</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">chi2</span>
+
+<span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">ch2</span><span class="o">=</span><span class="n">SelectKBest</span><span class="p">(</span><span class="n">chi2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">X_new</span> <span class="o">=</span> <span class="n">ch2</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">feature_names</span><span class="p">:</span>
+        <span class="c1"># keep selected feature names</span>
+        <span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span>
+                         <span class="ow">in</span> <span class="n">ch2</span><span class="o">.</span><span class="n">get_support</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="bp">True</span><span class="p">)]</span>
+<span class="n">feature_names</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[73]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;school_MS&#39;,
+ &#39;Medu&#39;,
+ &#39;Mjob_health&#39;,
+ &#39;reason_course&#39;,
+ &#39;guardian_other&#39;,
+ &#39;failures&#39;,
+ &#39;schoolsup&#39;,
+ &#39;romantic&#39;,
+ &#39;goout&#39;,
+ &#39;absences&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>
